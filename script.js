@@ -1,5 +1,5 @@
 // Timer
-let daedline = '2023-06-09T08:00'
+let daedline = '2024-06-29T13:00'
 
 const timer = (id, daedline) => {
     const addZero = (num) => {
