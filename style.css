@@ -3,15 +3,16 @@
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
     font-family: 'Pacifico', cursive;
 }
 
 .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
     text-align: center;
     color: #fff;
     padding: 15px;
@@ -33,6 +34,7 @@ h1 {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 20px;
+    width: 100px;
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease-in-out;
@@ -45,7 +47,7 @@ h1 {
 }
 
 #days, #hours, #minutes, #seconds {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 700;
     color: #ffffff;
     text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
@@ -53,7 +55,7 @@ h1 {
 }
 
 .description1 {
-    font-size: 1.2rem;
+    font-size: 2rem;
     margin-top: 10px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.7);
@@ -74,7 +76,12 @@ h1 {
         font-size: 2rem;
     }
 
+    .container {
+        justify-content: flex-start;
+    }
+
     .container1 {
+        width: 100%;
         flex-direction: column;
         gap: 10px;
     }
@@ -84,13 +91,10 @@ h1 {
         justify-content: space-around;
         align-items: center;
         padding: 15px;
+        width: auto;
     }
 
     #days, #hours, #minutes, #seconds {
         font-size: 2.5rem;
-    }
-
-    .description1 {
-        font-size: 1rem;
     }
 }
