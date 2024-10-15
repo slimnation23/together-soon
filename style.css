@@ -1,52 +1,97 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-h1 {
-    margin-bottom: 20px;
-    text-align: center;
-    color: white;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-.container {
     height: 100vh;
-    width: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(#4785f9, #d8d50f);
+    background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+    font-family: 'Pacifico', cursive;
 }
+
+.container {
+    text-align: center;
+    color: #fff;
+    padding: 0 15px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
 .container1 {
-    display: inline-block;
-    border-radius: 8px;
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.5);
-    padding: 10px 15px;
-  }
-  .numbers1 {
-    display: block;
-    text-align: center;
-    float: left;
-    color: white;
-    font-size: 40px;
-    margin-right: 10px;
-    border: 1px solid #ddd;
-    padding: 5px;
-    border-radius: 8px;
-  }
-  .numbers1:last-child {
-    margin-right: 0;
-  }
-  
-  .timer1 span {
-    margin-right: 2px;
-    background-color: #575757;
-    border-radius: 7px;
-    padding: 4px;
-  }
-  .description1 {
-    font-size: 18px;
-    text-align: center;
-    color: white;
-  }
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.numbers1 {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.numbers1:hover {
+    transform: scale(1.05);
+}
+
+.numbers1 div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#days, #hours, #minutes, #seconds {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    transition: color 0.5s ease;
+}
+
+.description1 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.numbers1 div span {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .container1 {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .numbers1 {
+        padding: 15px;
+    }
+
+    #days, #hours, #minutes, #seconds {
+        font-size: 2.5rem;
+    }
+
+    .description1 {
+        font-size: 1rem;
+    }
+}
