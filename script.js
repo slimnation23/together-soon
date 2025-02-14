@@ -15,10 +15,10 @@ function countdown(date) {
     const seconds = Math.floor((finalDate % (1000 * 60)) / 1000);
 
     container.innerHTML = `
-      <div>${days} <span class="text-xs">days</span></div> 
-      <div>${hours} <span class="text-xs">hours</span> </div>
-      <div>${minutes} <span class="text-xs">minutes</span> </div>
-      <div>${seconds} <span class="text-xs">seconds</span></div>
+      <div>${days} <span class="text-sm">days</span></div> 
+      <div>${hours} <span class="text-sm">hours</span> </div>
+      <div>${minutes} <span class="text-sm">minutes</span> </div>
+      <div>${seconds} <span class="text-sm">seconds</span></div>
     `;
   }, 1000);
 }
