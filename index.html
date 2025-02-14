@@ -9,7 +9,10 @@
     <meta property="og:title" content="Together Soon" />
     <meta property="og:site_name" content="Together Soon" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Counting down the moments until we meet! Stay excited for our upcoming event." />
+    <meta
+      property="og:description"
+      content="Counting down the moments until we meet! Stay excited for our upcoming event."
+    />
     <meta property="og:url" content="https://slimnation23.github.io/together-soon/" />
     <meta property="og:image" content="https://slimnation23.github.io/together-soon/together-soon.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
@@ -17,30 +20,13 @@
     <meta property="og:image:height" content="630" />
 
     <link rel="shortcut icon" href="icons8-timer-100.png" type="image/x-icon" />
-    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js" defer></script>
   </head>
-  <body>
-    <div class="container">
-      <h1>Together Soon</h1>
-      <div class="container1">
-        <div class="numbers1">
-          <div><span id="days"></span></div>
-          <div class="description1">Days</div>
-        </div>
-        <div class="numbers1">
-          <div><span id="hours"></span></div>
-          <div class="description1">Hours</div>
-        </div>
-        <div class="numbers1">
-          <div><span id="minutes"></span></div>
-          <div class="description1">Minutes</div>
-        </div>
-        <div class="numbers1">
-          <div><span id="seconds"></span></div>
-          <div class="description1">Seconds</div>
-        </div>
-      </div>
+  <body class="bg-cyan-200 h-screen m-5 flex flex-col gap-2.5 justify-center items-center">
+    <div 
+      id="container" 
+      class="flex items-baseline flex-wrap text-cyan-900 border p-5 shadow-md rounded-lg bg-cyan-100 gap-2.5 text-2xl">
     </div>
   </body>
 </html>

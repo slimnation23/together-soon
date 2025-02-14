@@ -1,61 +1,26 @@
-// Time
-let daedline = '2024-12-22T09:00'
+const container = document.querySelector("#container");
+const targetDate = new Date("2025-06-20T00:00:00").getTime();
 
-const timer = (id, daedline) => {
-    const addZero = (num) => {
-      if (num <= 9) {
-        return '0' + num
-      } else {
-        return num
-      }
+function countdown(date) {
+  const interval = setInterval(() => {
+    const now = Date.now();
+    const finalDate = date - now;
+    if (finalDate < 0) {
+      clearInterval(interval);
+      container.textContent = "Finish";
     }
-  
-    const getTimeRemaning = (endtime) => {
-      const t = Date.parse(endtime) - Date.parse(new Date())
-      const seconds = Math.floor((t / 1000) % 60)
-      const minutes = Math.floor((t / 1000 / 60) % 60)
-      const hours = Math.floor((t / (1000 * 60 * 60)) % 24)
-      const days = Math.floor(t / (1000 * 60 * 60 * 24))
-  
-      return {
-        total: t,
-        days: days,
-        hours: hours,
-        minutes: minutes,
-        seconds: seconds,
-      }
-    }
-  
-    const setClock = (selector, endtime) => {
-      const timer = document.querySelector(selector)
-      const days = timer.querySelector('#days')
-      const hours = timer.querySelector('#hours')
-      const minutes = timer.querySelector('#minutes')
-      const seconds = timer.querySelector('#seconds')
-      const timeInterval = setInterval(updateClock, 1000)
-  
-      updateClock()
-  
-      function updateClock() {
-        const t = getTimeRemaning(endtime)
-  
-        days.textContent = addZero(t.days)
-        hours.textContent = addZero(t.hours)
-        minutes.textContent = addZero(t.minutes)
-        seconds.textContent = addZero(t.seconds)
-  
-        if (t.total <= 0) {
-          days.textContent = '00'
-          hours.textContent = '00'
-          minutes.textContent = '00'
-          seconds.textContent = '00'
-  
-          clearInterval(timeInterval)
-        }
-      }
-    }
-  
-    setClock(id, daedline)
-  }
-  
-  timer('.container1', daedline)
+    const days = Math.floor(finalDate / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((finalDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((finalDate % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((finalDate % (1000 * 60)) / 1000);
+
+    container.innerHTML = `
+      <div>${days} <span class="text-lg">days</span></div> 
+      <div>${hours} <span class="text-lg">hours</span> </div>
+      <div>${minutes} <span class="text-lg">minutes</span> </div>
+      <div>${seconds} <span class="text-lg">seconds</span></div>
+    `;
+  }, 1000);
+}
+
+countdown(targetDate);
