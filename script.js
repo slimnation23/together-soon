@@ -1,5 +1,5 @@
 const container = document.querySelector("#container");
-const targetDate = new Date("2025-06-20T00:00:00").getTime();
+const targetDate = new Date("2025-07-28T00:00:00").getTime();
 
 function countdown(date) {
   const interval = setInterval(() => {
