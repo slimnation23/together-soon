@@ -1,26 +1,47 @@
-const container = document.querySelector("#container");
-const targetDate = new Date("2025-08-03T23:00:00").getTime();
+const container = document.querySelector('#container');
+const result = document.querySelector('#result');
+const targetDate = new Date('2026-04-16T14:44:20').getTime();
 
-function countdown(date) {
-  const interval = setInterval(() => {
-    const now = Date.now();
-    const finalDate = date - now;
-    if (finalDate < 0) {
-      clearInterval(interval);
-      container.textContent = "Finish";
-    }
-    const days = Math.floor(finalDate / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((finalDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((finalDate % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((finalDate % (1000 * 60)) / 1000);
+function updateCountdown() {
+  const now = Date.now();
+  const finalDate = targetDate - now;
 
-    container.innerHTML = `
-      <div>${days} <span class="text-lg">days</span></div> 
-      <div>${hours} <span class="text-lg">hours</span> </div>
-      <div>${minutes} <span class="text-lg">minutes</span> </div>
-      <div>${seconds} <span class="text-lg">seconds</span></div>
-    `;
-  }, 1000);
+  if (finalDate <= 0) {
+    result.innerHTML = `<div class="text-4xl text-center font-bold w-full py-10 scale-110 transition-transform">Together Now! 🎉</div>`;
+    return true; // Таймер завершено
+  }
+
+  const days = Math.floor(finalDate / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((finalDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((finalDate % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((finalDate % (1000 * 60)) / 1000);
+
+  container.innerHTML = `
+    <div class="flex flex-col items-center">
+      <span class="text-5xl font-black">${days}</span>
+      <span class="text-sm uppercase tracking-widest opacity-70">days</span>
+    </div>
+    <div class="flex flex-col items-center">
+      <span class="text-5xl font-black">${hours.toString().padStart(2, '0')}</span>
+      <span class="text-sm uppercase tracking-widest opacity-70">hours</span>
+    </div>
+    <div class="flex flex-col items-center">
+      <span class="text-5xl font-black">${minutes.toString().padStart(2, '0')}</span>
+      <span class="text-sm uppercase tracking-widest opacity-70">mins</span>
+    </div>
+    <div class="flex flex-col items-center">
+      <span class="text-5xl font-black text-rose-500 animate-pulse">${seconds.toString().padStart(2, '0')}</span>
+      <span class="text-sm uppercase tracking-widest opacity-70">secs</span>
+    </div>
+  `;
+  return false;
 }
 
-countdown(targetDate);
+// Початковий запуск без затримки
+if (!updateCountdown()) {
+  const interval = setInterval(() => {
+    if (updateCountdown()) {
+      clearInterval(interval);
+    }
+  }, 1000);
+}

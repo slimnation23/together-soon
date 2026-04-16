@@ -1,32 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>Together Soon</title>
 
-    <meta property="og:title" content="Together Soon" />
-    <meta property="og:site_name" content="Together Soon" />
-    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Together Soon"
+    />
+    <meta
+      property="og:site_name"
+      content="Together Soon"
+    />
+    <meta
+      property="og:type"
+      content="website"
+    />
     <meta
       property="og:description"
       content="Counting down the moments until we meet! Stay excited for our upcoming event."
     />
-    <meta property="og:url" content="https://slimnation23.github.io/together-soon/" />
-    <meta property="og:image" content="https://slimnation23.github.io/together-soon/together-soon.jpg" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:url"
+      content="https://slimnation23.github.io/together-soon/"
+    />
+    <meta
+      property="og:image"
+      content="https://slimnation23.github.io/together-soon/together-soon.jpg"
+    />
+    <meta
+      property="og:image:type"
+      content="image/jpeg"
+    />
+    <meta
+      property="og:image:width"
+      content="1200"
+    />
+    <meta
+      property="og:image:height"
+      content="630"
+    />
 
-    <link rel="shortcut icon" href="icons8-timer-100.png" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="favicon.png"
+      type="image/x-icon"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="script.js" defer></script>
+    <script
+      src="script.js"
+      defer
+    ></script>
   </head>
-  <body class="bg-cyan-200 h-screen mx-5 my-20 flex flex-col gap-2.5">
-    <div 
-      id="container" 
-      class="flex flex-col text-cyan-900 border p-5 shadow-md rounded-lg bg-cyan-100 gap-2.5 text-3xl">
-    </div>
+  <body
+    class="bg-slate-900 text-white min-h-screen flex items-center justify-center p-6 relative overflow-hidden font-sans"
+  >
+    <!-- Фонове зображення з ефектом розмиття -->
+    <div
+      class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat blur-[2px] opacity-40 scale-105"
+      style="background-image: url('italy-mountains.png')"
+    ></div>
+
+    <!-- Основний контент -->
+    <main
+      class="relative z-10 w-full max-w-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-8 md:p-12 shadow-2xl rounded-3xl flex flex-col items-center gap-8"
+    >
+      <header class="text-center">
+        <h1
+          class="text-4xl !leading-normal md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-rose-400"
+        >
+          Together Soon
+        </h1>
+      </header>
+
+      <div
+        id="container"
+        class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 w-full"
+      >
+        <!-- Таймер заповнюється через script.js -->
+      </div>
+      <div id="result"></div>
+    </main>
   </body>
 </html>
