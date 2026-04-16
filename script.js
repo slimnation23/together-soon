@@ -1,6 +1,6 @@
 const container = document.querySelector('#container');
 const result = document.querySelector('#result');
-const targetDate = new Date('2026-04-16T14:44:20').getTime();
+const targetDate = new Date('2026-07-12T07:00:00').getTime();
 
 function updateCountdown() {
   const now = Date.now();
